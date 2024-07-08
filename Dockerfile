@@ -1,14 +1,9 @@
-FROM node:latest as angular
+FROM node:latest AS build
 WORKDIR /app
 COPY package.json /app
+RUN npm install -g @angular/cli
 RUN npm install --silent
 COPY . .
 RUN npm run build
 
-FROM nginx:alpine
-VOLUME /var/cache/nginx
-COPY --from=angular app/dist/kd1k-client /usr/share/nginx/html
-COPY ./config/nginx.conf /etc/nginx/conf.d/default.conf
-
-# docker build -t kd1k-client
-# docker run -p 8082
+CMD ["ng", "serve", "--host", "0.0.0.0"]

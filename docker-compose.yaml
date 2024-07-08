@@ -3,6 +3,8 @@ version: "3.4"
 services:
   kd1k-client:
     image: kd1k-client
-    build: .
+    build:
+      context: ./
+      dockerfile: Dockerfile
     ports:
-      - 8082:80
+      - 4242:4200

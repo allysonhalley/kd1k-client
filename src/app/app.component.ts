@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
+// @ts-ignore
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -9,5 +10,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'kd1k-client';
+  title :string = 'kd1k-client';
 }
